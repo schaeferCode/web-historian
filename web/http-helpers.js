@@ -12,14 +12,21 @@ exports.headers = {
 
 exports.serveAssets = function(res, asset, callback) {
   var content;
-  fs.readFile(archive.paths.siteAssets + asset, 'utf8', function (err, data) {
+  fs.readFile(asset, 'utf8', function (err, data) {
     if (err) {
       console.log(err);
     }
     content = data;
-    console.log(JSON.stringify(content));
+    // console.log(JSON.stringify(content));
     res.end(content);
   });
+
+  //check the archives/sites folder
+  //has file named www.google.com
+  //if yes, return the contents of that file in res.end()
+
+
+
 
   // purpose: we call this function anytime we need to server index.html or any other site.
 
