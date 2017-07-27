@@ -11,6 +11,18 @@ exports.headers = {
 };
 
 exports.serveAssets = function(res, asset, callback) {
+  var content;
+  fs.readFile(archive.paths.siteAssets + asset, 'utf8', function (err, data) {
+    if (err) {
+      console.log(err);
+    }
+    content = data;
+    console.log(JSON.stringify(content));
+    res.end(content);
+  });
+
+  // purpose: we call this function anytime we need to server index.html or any other site.
+
   // Write some code here that helps serve up your static files!
   // (Static files are things like html (yours or archived from others...),
   // css, or anything that doesn't change often.)
